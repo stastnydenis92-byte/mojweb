@@ -59,36 +59,37 @@ st.markdown("""
 
 st.markdown("<h1 style='text-align: center; color: #1e293b; font-weight: 800;'>🏨 FérovéHotely.sk</h1>", unsafe_allow_html=True)
 
+# Databáza so stabilnými odkazmi na obrázky, ktoré servery neblokujú
 hotely_databaza = [
     {
         "nazov": "Hotel Zlatý Kľúčik", "region": "Západné Slovensko", "mesto": "Nitra", "google_rating": 4.7, "cena_noc": 130, 
         "web_hotela": "https://zlatyklyucik.sk", "booking_url": "https://booking.com", "obsadene_dni": [], "lat": 48.3245, "lon": 18.0961,
-        "foto": "https://unsplash.com"
+        "foto": "https://pexels.com"
     },
     {
         "nazov": "Hotel Holiday Inn", "region": "Západné Slovensko", "mesto": "Trnava", "google_rating": 4.6, "cena_noc": 110, 
         "web_hotela": "https://holidayinn-trnava.sk", "booking_url": "https://booking.com", "obsadene_dni": [], "lat": 48.3780, "lon": 17.5890,
-        "foto": "https://unsplash.com"
+        "foto": "https://pexels.com"
     },
     {
         "nazov": "Hotel Penzión Pribina", "region": "Západné Slovensko", "mesto": "Nitra", "google_rating": 4.4, "cena_noc": 65, 
         "web_hotela": "https://penzionpribina.sk", "booking_url": "https://booking.com", "obsadene_dni": [], "lat": 48.3115, "lon": 18.0865,
-        "foto": "https://unsplash.com"
+        "foto": "https://pexels.com"
     },
     {
         "nazov": "Hotel Národný Dom", "region": "Stredné Slovensko", "mesto": "Banská Bystrica", "google_rating": 4.4, "cena_noc": 75, 
         "web_hotela": "https://hotelnarodnydom.sk", "booking_url": "https://booking.com", "obsadene_dni": [], "lat": 48.7352, "lon": 19.1461,
-        "foto": "https://unsplash.com"
+        "foto": "https://pexels.com"
     },
     {
         "nazov": "Hotel Ambra", "region": "Stredné Slovensko", "mesto": "Žilina", "google_rating": 4.5, "cena_noc": 80, 
         "web_hotela": "https://hotelambra.sk", "booking_url": "https://booking.com", "obsadene_dni": [], "lat": 49.2231, "lon": 18.7394,
-        "foto": "https://unsplash.com"
+        "foto": "https://pexels.com"
     },
     {
         "nazov": "Boutique Hotel Slávia", "region": "Východné Slovensko", "mesto": "Košice", "google_rating": 4.8, "cena_noc": 125, 
         "web_hotela": "https://hotelslavia.sk", "booking_url": "https://booking.com", "obsadene_dni": [], "lat": 48.7214, "lon": 21.2582,
-        "foto": "https://unsplash.com"
+        "foto": "https://pexels.com"
     }
 ]
 
@@ -132,12 +133,12 @@ if len(termin) == 2:
             for hotel in hotely_zoradene:
                 st.markdown(f"""
                     <div class="hotel-card">
-                        <img src="{hotel['foto']}" style="width: 100%; border-radius: 12px; height: 160px; object-fit: cover; margin-bottom: 10px;">
+                        <img src="{hotel['foto']}" style="width: 100%; border-radius: 12px; height: 180px; object-fit: cover; margin-bottom: 15px;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <h4>{hotel['nazov']}</h4>
+                            <h4 style="margin:0; font-size:18px; font-weight:700; color:#1e293b;">{hotel['nazov']}</h4>
                             <span class="rating-badge">⭐ {hotel['google_rating']}</span>
                         </div>
-                        <p style="color: #64748b; font-size: 14px;">📍 {hotel['mesto']} | Celkom: {hotel['celkova_cena']} €</p>
+                        <p style="color: #64748b; font-size: 14px; margin: 5px 0 15px 0;">📍 {hotel['mesto']} | Celkom: <strong>{hotel['celkova_cena']} €</strong> za {pocet_noci} nocí</p>
                         <a href="{hotel['web_hotela']}" target="_blank" class="btn-direct">🌐 Rezervovať napriamo</a>
                         <a href="{hotel['booking_url']}" target="_blank" class="btn-booking">Cez Booking.com</a>
                     </div>
